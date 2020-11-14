@@ -1,0 +1,116 @@
+.card{
+    color:white;
+    font-weight: 300;
+    margin:10px;
+    padding:10px;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(148, 29, 29) 0%, rgb(199, 152, 50) 100.2% );
+    border-radius: 3px;
+    box-shadow:0px 2px 1px grey;
+    padding: 20px;
+
+    
+
+}
+
+.done-card{
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(223,91,91,1) 0%, rgba(255,209,110,1) 100.2% );
+    }
+.done-card>p{
+    text-decoration: line-through;
+}
+
+.card:hover{
+    box-shadow:0px 6px 6px grey;
+    font-weight: 400;
+}
+button{
+    border-radius: 2px;
+    margin:5px;
+    padding:6px;
+    color:white;
+    background-color: rgb(253, 69, 69);
+    border: none;
+}
+
+button:hover{
+    
+    box-shadow:0px 1px 1px grey;
+    background-color: rgb(192, 97, 97);
+}
+
+.card>p,button,input{
+    display: inline;
+}
+
+
+
+
+
+
+.container {
+    
+    position: relative;
+    padding-left: 35px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(235, 145, 145);
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: rgb(247, 80, 80);
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: rgb(253, 69, 69);
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid rgb(250, 156, 156);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
