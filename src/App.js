@@ -1,5 +1,5 @@
 
-import React,{ useEffect, useState  } from 'react';
+import React,{ useState  } from 'react';
 import './App.css';
 import Card from './components/Card';
 
@@ -40,21 +40,23 @@ const addTaskHander=()=>{
 }
 
 const deleteHandler=(id)=>{
-    let arr=todosState.todos;
+    let arr=[...todosState.todos];
     let bool=window.confirm("Are you that you want to delete this Task?")
     if(bool===true){arr=arr.filter((item,index)=> {
         if(index!==id){
             return item;
         }
         else{return;}
-    } )
+       return;
+    }
+     )
     
     setTodosState({todos:[...arr]});
 }
 }
 
 const editHandler=(id)=>{
-    let arr=todosState.todos;
+    let arr=[...todosState.todos];
     let str= arr[id].task;
     arr[id].task=prompt("Edit the thing",str)
 
@@ -63,20 +65,20 @@ const editHandler=(id)=>{
 
 const completedHandler=(id)=>{
 
-    let arr=todosState.todos;
+    let arr=[...todosState.todos];
     arr[id].done=!arr[id].done;
     setTodosState({todos:[...arr]});
 }
 
 const editHandler2=(id,event)=>{
-    let arr=todosState.todos;
+    let arr=[...todosState.todos];
     arr[id].task=event.target.value;
     setTodosState({todos: [...arr]})
 
 }
 
 const filterTask=(str)=>{
-    let arr=todosState.todos;
+    let arr=[...todosState.todos];
     
     let doneTrue=arr.filter((item)=>{if(item.done===true){return item} else{return;}});
     let doneFalse=arr.filter((item)=>{if(item.done===false){return item} else{return;}});
