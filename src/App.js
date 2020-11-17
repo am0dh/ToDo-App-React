@@ -1,5 +1,5 @@
 
-import React,{ useState  } from 'react';
+import React,{ useEffect , useState  } from 'react';
 import './App.css';
 import Card from './components/Card';
 
@@ -129,6 +129,12 @@ const filterTask=(str)=>{
 
 }
 
+let taskNumber;
+
+  useEffect(() => {
+    taskNumber=todosState.todos.length;
+    
+  });
 
 
  return( 
@@ -147,7 +153,7 @@ const filterTask=(str)=>{
             </div>
         </div>
         <button onClick={()=>addTaskHander()}>Add</button>
-
+        <div> Total Tasks: {taskNumber}</div>
         {todosState.todos.map((item , index, arr)=><Card key={index} data={item.task} done={item.done} index={index} delete={deleteHandler} edit={editHandler} edit2={editHandler2} completed={completedHandler} />)}
   
         

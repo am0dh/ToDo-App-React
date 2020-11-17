@@ -19,7 +19,7 @@ const Card=(props)=>{
 
         <p> {props.data}  </p>
         <button onClick={()=>{props.edit(props.index)}}> Edit </button>
-        <button onClick={()=>{ props.delete(props.index)}}> Delete </button>
+        <button onClick={()=>{ props.delete(props.index)}}> X </button>
     </div>)
 
 }
