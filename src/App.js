@@ -58,9 +58,14 @@ const deleteHandler=(id)=>{
 const editHandler=(id)=>{
     let arr=[...todosState.todos];
     let str= arr[id].task;
-    arr[id].task=prompt("Edit the thing",str)
-
+    let edited=(prompt("Edit the thing",str))
+    if(edited===null || edited===undefined || edited=== ""){return;}
+    else{
+    arr[id].task=edited;
     setTodosState({todos: [...arr]})
+
+    }
+
 }
 
 const completedHandler=(id)=>{
@@ -70,12 +75,7 @@ const completedHandler=(id)=>{
     setTodosState({todos:[...arr]});
 }
 
-const editHandler2=(id,event)=>{
-    let arr=[...todosState.todos];
-    arr[id].task=event.target.value;
-    setTodosState({todos: [...arr]})
 
-}
 
 const filterTask=(str)=>{
     let arr=[...todosState.todos];
@@ -129,12 +129,9 @@ const filterTask=(str)=>{
 
 }
 
-let taskNumber;
+let totalTasks=todosState.todos.length;
 
-  useEffect(() => {
-    taskNumber=todosState.todos.length;
-    
-  });
+
 
 
  return( 
@@ -153,8 +150,9 @@ let taskNumber;
             </div>
         </div>
         <button onClick={()=>addTaskHander()}>Add</button>
-        <div> Total Tasks: {taskNumber}</div>
-        {todosState.todos.map((item , index, arr)=><Card key={index} data={item.task} done={item.done} index={index} delete={deleteHandler} edit={editHandler} edit2={editHandler2} completed={completedHandler} />)}
+        <div className="task-num"> Total Tasks: {totalTasks} </div>
+
+        {todosState.todos.map((item , index)=><Card key={index} data={item.task} done={item.done} index={index} delete={deleteHandler} edit={editHandler} completed={completedHandler} />)}
   
         
         

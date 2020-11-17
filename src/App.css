@@ -26,3 +26,7 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
+  .task-num{
+    margin:15px;
+    
+  }
